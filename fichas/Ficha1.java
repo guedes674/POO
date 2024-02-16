@@ -21,6 +21,14 @@ public class Ficha1 {
         return valor * taxaConversao;
     }
 
+    public String ordMed (double a, double b){
+        double media = (a + b)/2;
+        if (a > b)
+            return "Média: " + media + " e " + a + " é maior do que " + b;
+        else
+            return "Média: " + media + " e " + b + " é maior do que " + a;
+    }
+
     public long factorial (int num){
         long acc = num;
 
