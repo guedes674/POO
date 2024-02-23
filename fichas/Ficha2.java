@@ -10,15 +10,15 @@ public class Ficha2 {
         return min;
     }
 
-    public int[] constroiArray (int i1, int i2){
+    public int[] indicesArray (int i1, int i2, int[] array){
         int tam = (i2 - i1)+1;
-        int[] array = new int[tam];
-
-        for(int i = 0; i2 >= i1; i++){
-            array[i] = i1;
-            i1++;
+        int z = 0;
+        int[] return_array = new int[tam];
+        for(int i = i1; i <= i2; i++){
+            return_array[z] = array[i];
+            z++;
         }
-        return array;
+        return return_array;
     }
 
     public int[] arrayComum (int[] a1, int[] a2) {

@@ -26,12 +26,20 @@ public class TestePrograma2 {
         }
         if (opcao == 1){
             //pergunta 1 B
-            System.out.println("Qual é o limite inferior do array? ");
+            int valor = -1;
+            System.out.println("Quantos inteiros vai ter o array? ");
+            int tam = sc.nextInt();
+            int[] valores = new int[tam];
+            for(int i = 0; i < valores.length; i++){
+                valor = sc.nextInt();
+                valores[i] = valor;
+            }
+            System.out.println("Qual é o índice inferior do array? ");
             int i1 = sc.nextInt();
-            System.out.println("Qual é o limite superior do array? ");
+            System.out.println("Qual é o índice superior do array? ");
             int i2 = sc.nextInt();
-            int[] arrayF = f.constroiArray(i1,i2);
-            System.out.println("O array entre os dois limites que estabeleceu é: " + Arrays.toString(arrayF));
+            int[] arrayF = f.indicesArray(i1,i2,valores);
+            System.out.println("O array entre os dois índices que estabeleceu é: " + Arrays.toString(arrayF));
         }
         if (opcao == 2){
             //pergunta 1 C
@@ -52,6 +60,20 @@ public class TestePrograma2 {
             }
             int[] arrayC = f.arrayComum(valores1, valores2);
             System.out.println("O array que contém os elementos comuns é: " + Arrays.toString(arrayC));
+        }
+        if (opcao == 6){
+            //pergunta 3 A
+            int[] arrayInt = {2332,123,43123,493,21};
+            Arrays.sort(arrayInt);
+            System.out.println("O array ordenado é: "+ Arrays.toString(arrayInt));
+        }
+        if (opcao == 7){
+            //pergunta 3 B
+            int[] arrayInt = {2332,123,43123,493,21};
+            System.out.println("Qual o elemento que deseja do array de inteiros: ");
+            int ind = sc.nextInt();
+            int ret = Arrays.binarySearch(arrayInt, ind);
+            System.out.println("O elemento pretendido é: "+ ret);
         }
     }
 }
