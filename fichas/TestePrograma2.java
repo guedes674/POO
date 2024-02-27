@@ -75,5 +75,37 @@ public class TestePrograma2 {
             int ret = Arrays.binarySearch(arrayInt, ind);
             System.out.println("O elemento pretendido é: "+ ret);
         }
+        if (opcao == 21){
+            //pergunta 6
+            int[][] mat1 = {{1,2,3,4,5},
+                    {6,7,8,9,10},
+                    {11,12,13,14,15},
+                    {16,17,18,19,20},
+                    {21,22,23,24,25}};
+            int[][] mat2 = {{15,12,10,17,20},
+                    {9,10,15,12,11},
+                    {15,10,9,5,12},
+                    {9,10,8,11,10},
+                    {19,17,15,20,19}};
+            System.out.println("Indique o número de linhas e depois de colunas que a sua matriz vai conter: ");
+            int linhas = sc.nextInt();
+            int colunas = sc.nextInt();
+            int[][] mat= f.lerMatriz(linhas, colunas);
+            for(int i = 0; i < mat.length; i++){
+                for(int j = 0; j < mat.length; j++){
+                    System.out.print(mat[i][j]+" , ");
+                }
+                System.out.println("\n");
+            }
+            System.out.println("A soma entre as matrizes predefinidas é: ");
+            int[][] somMat = f.somaMatrizes(mat1,mat2);
+            for(int i = 0; i < mat.length; i++){
+                for(int j = 0; j < mat.length; j++){
+                    System.out.print(somMat[i][j]+" , ");
+                }
+                System.out.println("\n");
+            }
+
+        }
     }
 }
