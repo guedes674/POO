@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PautaTurmaMain {
@@ -37,5 +38,11 @@ public class PautaTurmaMain {
         System.out.println("A nota mais alta da turma é: " + maiorNota);
         int menorNota = pauta.notaMaisBaixa();
         System.out.println("A nota mais baixa da turma é: " + menorNota);
+        System.out.println("Insira um valor para ser calculada a lista com as notas superior a esse valor: ");
+        int notaEscolhida = sc.nextInt();
+        int[] arrayRes = pauta.notasAcima(notaEscolhida);
+        System.out.println("O array com as notas acima desse valor é: "+ Arrays.toString(arrayRes));
+        int ucMedMaisAlta = pauta.indUcMedAlta();
+        System.out.println("A uc com a média mais alta da pauta é: "+ucMedMaisAlta);
     }
 }

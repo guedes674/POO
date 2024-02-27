@@ -16,9 +16,9 @@ public class PautaTurma {
     }
 
     public void imprimePauta(){
-        for(int i = 0; i < notasTurma.length; i++){
-            for(int j = 0; j < notasTurma.length; j++){
-                System.out.print(notasTurma[i][j]+" , ");
+        for(int i = 0; i < this.notasTurma.length; i++){
+            for(int j = 0; j < this.notasTurma.length; j++){
+                System.out.print(getNota(i,j)+" , ");
             }
             System.out.println("\n");
         }
@@ -30,10 +30,10 @@ public class PautaTurma {
 
     public int calculaNotasUc (int uc){
         int ret = 0;
-        for(int i = 0; i < notasTurma.length; i++){
-            for(int j = 0; j < notasTurma.length; j++){
+        for(int i = 0; i < this.notasTurma.length; i++){
+            for(int j = 0; j < this.notasTurma.length; j++){
                 if (j == uc)
-                    ret += notasTurma[i][j];
+                    ret += getNota(i,j);
             }
         }
         return ret;
@@ -41,10 +41,10 @@ public class PautaTurma {
 
     public double mediaAluno (int aluno){
         double somaNotas = 0;
-        for(int i = 0; i < notasTurma.length; i++){
-            for(int j = 0; j < notasTurma.length; j++){
+        for(int i = 0; i < this.notasTurma.length; i++){
+            for(int j = 0; j < this.notasTurma.length; j++){
                 if (i == aluno)
-                    somaNotas += notasTurma[i][j];
+                    somaNotas += getNota(i,j);
             }
         }
         return somaNotas/5;
@@ -52,10 +52,10 @@ public class PautaTurma {
 
     public double mediaUc (int uc){
         double somaNotas = 0;
-        for(int i = 0; i < notasTurma.length; i++){
-            for(int j = 0; j < notasTurma.length; j++){
+        for(int i = 0; i < this.notasTurma.length; i++){
+            for(int j = 0; j < this.notasTurma.length; j++){
                 if(j == uc)
-                    somaNotas += notasTurma[i][j];
+                    somaNotas += getNota(i,j);
             }
         }
         return somaNotas/5;
@@ -64,10 +64,10 @@ public class PautaTurma {
     public int notaMaisAlta (){
         int max_nota = 0;
 
-        for(int i = 0; i < notasTurma.length; i++){
-            for(int j = 0; j < notasTurma.length; j++){
-                if (notasTurma[i][j] > max_nota)
-                    max_nota = notasTurma[i][j];
+        for(int i = 0; i < this.notasTurma.length; i++){
+            for(int j = 0; j < this.notasTurma.length; j++){
+                if (getNota(i,j) > max_nota)
+                    max_nota = getNota(i,j);
             }
         }
         return max_nota;
@@ -76,12 +76,47 @@ public class PautaTurma {
     public int notaMaisBaixa (){
         int min_nota = this.notaMaisAlta();
 
-        for(int i = 0; i < notasTurma.length; i++){
-            for(int j = 0; j < notasTurma.length; j++){
-                if (notasTurma[i][j] < min_nota)
-                    min_nota = notasTurma[i][j];
+        for(int i = 0; i < this.notasTurma.length; i++){
+            for(int j = 0; j < this.notasTurma.length; j++){
+                if (getNota(i,j) < min_nota)
+                    min_nota = getNota(i,j);
             }
         }
         return min_nota;
+    }
+
+    public int[] notasAcima (int nota){
+        int tam = 0;
+        for(int i = 0; i < this.notasTurma.length; i++){
+            for(int j = 0; j < this.notasTurma.length; j++){
+                if (getNota(i,j) > nota)
+                    tam++;
+
+            }
+        }
+        int[] ret = new int[tam];
+        int r = 0;
+        for(int i = 0; i < this.notasTurma.length; i++){
+            for(int j = 0; j < this.notasTurma.length; j++){
+                if (getNota(i,j) > nota) {
+                    ret[r] = getNota(i, j);
+                    r++;
+                }
+            }
+        }
+        return ret;
+    }
+
+    public int indUcMedAlta (){
+        int medMaisAlta = 0, ind = -1;
+        for(int i = 0; i < this.notasTurma.length; i++){
+            for(int j = 0; j < this.notasTurma.length; j++){
+                if(this.mediaUc(j) > medMaisAlta){
+                    medMaisAlta = getNota(i,j);
+                    ind = j;
+                }
+            }
+        }
+        return ind;
     }
 }
