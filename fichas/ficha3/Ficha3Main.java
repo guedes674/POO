@@ -29,5 +29,11 @@ public class Ficha3Main {
                         double perimetro = circulo.calculaPerimetro();
                         System.out.println("O perímetro do círculo é: "+perimetro+"\nA área do círculo é: "+area);
                 }
+                if(ex == 2){
+                        Lampada lampada = new Lampada();
+                        System.out.println(lampada.toString());
+                        lampada.lampON();
+                        System.out.println(lampada.toString());
+                }
         }
 }
